@@ -4,14 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const mongoose_1 = __importDefault(require("mongoose"));
+const dbConnect_1 = __importDefault(require("./config/dbConnect"));
+dbConnect_1.default.on("Error", console.log.bind(console, "Erro de conexao"));
+dbConnect_1.default.once("open", () => console.log("Conexão com o banco feita com sucesso"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb://localhost/jardimDaRo').then(() => {
-    console.log("Conexão realizada com sucesso");
-}).catch((error) => {
-    console.log("ERROUUUUUUU");
-});
 app.get('/', (req, res) => {
     res.send('Hello World!!');
 });
