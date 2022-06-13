@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Login } from './pages/Login';
 import './index.css';
+import Button from './components/Button';
+
 
 
 
@@ -17,6 +19,7 @@ function App() {
             count is: {count}
           </button>
         </p>
+        <Button>ola</Button>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
         </p>
